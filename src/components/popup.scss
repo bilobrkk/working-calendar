@@ -14,23 +14,22 @@
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    text-align: center;
-
-    left: 30%;
-    right: 30%;
-    top: 30%;
-    bottom: 30%;
-
     border-radius: 5px;
     background: var(--light);
+    padding: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .popup_h1 {
       color: var(--primary);
+      text-align: center;
+      margin-bottom: 1rem;
     }
     .popup_h2 {
       color: var(--text-primary);
-      font-weight: 400;
-      margin: 0 0 3% 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
     }
 
     .popup_buttons {

@@ -10,7 +10,7 @@ class Popup extends React.Component<any, any> {
             <div className='popup'>
                 <div className='popup_inner popup_display'>
                     <h1 className='popup_h1'> CREATE YOUR APPOINTMENT FOR </h1>
-                    <h2 className='popup_h2'>{date_date}</h2>
+                    <p className='popup_h2'>{date_date}</p>
                     <div className='popup_buttons'>
                         <button className='popup_create_buttons' onClick={createAppointment}>CREATE</button>
                         <button className='popup_cancel_buttons' onClick={cancel}>CANCEL</button>
