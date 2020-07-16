@@ -24,10 +24,6 @@ export function handleChangeWeek(dataSymbol:string, weekStartWith:Date, weekID:n
         } else {
             weekID = weekID - 1;
             return {beforeToday: false, afterTwoMonths:false, newStartDate:newStartDate, weekID: weekID}
-            //
-            // this.setState(() => {
-            //     return {weekStartWith: newStartDate, weekID: weekID}
-            // });
         }
 
     } else if (dataSymbol === "plus") {
@@ -40,17 +36,10 @@ export function handleChangeWeek(dataSymbol:string, weekStartWith:Date, weekID:n
         let mondayFromMaxDate = getMonday(maxDate);
 
         if (mondayFromMaxDate.getTime() < newStartDate.getTime()) {
-            // return (
             return {beforeToday: false, afterTwoMonths:true, newStartDate:newStartDate, weekID: weekID};
-            // alert("You cannot go more than two months from today!")
-            // )
         } else {
             weekID = weekID + 1;
             return {beforeToday: false, afterTwoMonths:false, newStartDate:newStartDate, weekID: weekID};
-
-            // this.setState(() => {
-            //     return {weekStartWith: newStartDate, weekID: weekID}
-            // });
         }
     }
     return {beforeToday: false, afterTwoMonths:true, newStartDate:new Date(), weekID: weekID};

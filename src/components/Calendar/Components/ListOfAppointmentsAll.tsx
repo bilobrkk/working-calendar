@@ -40,7 +40,7 @@ class ListOfAppointmentsAll extends React.Component<any, any> {
 
                     }</button>
                 {showAppointments ?
-                    <ol>
+                    <ul>
                         {
                             sortedAppointments.map((appointment: IAppointment, index: number) => {
                                 let date = new Date(appointment.appointment.date);
@@ -48,17 +48,27 @@ class ListOfAppointmentsAll extends React.Component<any, any> {
                                 let appointmentDate = date.getDate() + "." + (date.getMonth() + 1) + "." +
                                     date.getFullYear();
                                 let appointmentTime = chosenTime.time;
-                                return (
-                                    <li className="appointment-date-time" key={index}>
-                                        <span className="index-span">{index + 1}. </span>
-                                        <span> WEEK {appointment.weekID}: </span>
-                                        <span>{appointmentDate}</span>
-                                        <span>  {appointmentTime}</span>
-                                    </li>
-                                )
+                                if (appointment.userID === 0) {
+                                    return (
+                                        <li className="appointment-date-time" key={index}>
+                                            <span className="index-span">{index + 1}.  </span>
+                                            <span>{appointmentDate}</span>
+                                            <span>{appointmentTime}</span>
+                                        </li>
+                                    )
+                                } else {
+                                    return (
+                                        <li className="appointment-date-time" key={index}>
+                                            <span className="index-span">{index + 1}.  </span>
+                                            <span> WEEK {appointment.weekID}: </span>
+                                            <span>{appointmentDate}</span>
+                                            <span>{appointmentTime}</span>
+                                        </li>
+                                    )
+                                }
                             })
                         }
-                    </ol>
+                    </ul>
                     : null
                 }
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {getChosenTimeByID} from "../../../helpers/calendarHelper";
 import IAppointment from "../../../interfaces/IAppointment";
-import {FaChevronDown, FaTwitter} from "react-icons/fa"
+import {FaChevronDown} from "react-icons/fa"
 import {FaChevronUp} from "react-icons/fa"
 
 class ListOfAppointmentsByUser extends React.Component<any, any> {
