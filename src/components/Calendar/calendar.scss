@@ -149,9 +149,9 @@ button:focus {
       align-items: center;
       width: 100%;
       padding: 1rem;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-      label{
+      label {
         font-size: 1.25rem;
       }
 
@@ -161,7 +161,7 @@ button:focus {
         background-color: var(--light-gray);
         font-size: 1rem;
         text-transform: uppercase;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
       }
 
     }
@@ -182,7 +182,7 @@ button:focus {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          border: 1px solid rgba(0,0,0,0.1);
+          border: 1px solid rgba(0, 0, 0, 0.1);
           margin-bottom: -1px;
         }
 
@@ -190,7 +190,7 @@ button:focus {
           display: flex;
           justify-content: space-between;
           padding: .75rem .5rem;
-          border: 1px solid rgba(0,0,0,0.1);
+          border: 1px solid rgba(0, 0, 0, 0.1);
           margin-bottom: -1px;
           &:nth-child(even) {
             background-color: var(--light-gray);
@@ -245,7 +245,6 @@ button:focus {
   color: black;
 }
 
-
 @media (max-width: 1500px) {
   html {
     font-size: 14px;
@@ -260,7 +259,7 @@ button:focus {
     .calendar {
       width: 100%;
     }
-    .info-div{
+    .info-div {
       width: 100%;
     }
   }

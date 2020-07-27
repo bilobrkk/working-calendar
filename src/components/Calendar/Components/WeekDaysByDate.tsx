@@ -2,7 +2,7 @@ import {getWeekDates} from "../../../helpers/calendarHelper";
 import * as React from "react";
 import {makePointer} from "../calendar";
 
-export default function WeekDaysByDate(props:any) {
+export default function WeekDaysByDate(props: any) {
     const {weekStartWith, weekID} = props;
 
     return (

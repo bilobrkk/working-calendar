@@ -26,9 +26,7 @@ export function makeAppointment(date: string, time: any, weekID: number, userID:
         }
     });
 
-    console.log(appointmentForDay, appointmentForWeek)
-
-    if(appointmentForDay >= 1){
+    if (appointmentForDay >= 1) {
         alert("YOU CAN'T CREATE APPOINTMENT FOR THIS DAY ANYMORE");
     } else if (appointmentForWeek < 2) {
         appointments.push({
@@ -46,13 +44,13 @@ export function makeAppointment(date: string, time: any, weekID: number, userID:
 }
 
 
-export function sortedAppointments():Array<IAppointment> {
-    let removedOldAppointments =  appointments.filter(app => {
-            let appDate = app.appointment.date.getTime();
-            let today = new Date().getTime();
-            if(!(appDate<today)){
-                return appDate;
-            }
+export function sortedAppointments(): Array<IAppointment> {
+    let removedOldAppointments = appointments.filter(app => {
+        let appDate = app.appointment.date.getTime();
+        let today = new Date().getTime();
+        if (!(appDate < today)) {
+            return appDate;
+        }
     });
 
     let appointmentByDate = removedOldAppointments.slice().sort((a: IAppointment, b: IAppointment) => {
@@ -77,13 +75,15 @@ export function checkAvailability(date: string, time: any): IAvailability {
             availabilityDescription: "",
             isAvailable: false
         };
-    } else if (checkWorkingHoursForDay(date, time)) {
+    }
+    if (checkWorkingHoursForDay(date, time)) {
         return {
             className: "nonworking-hours",
             availabilityDescription: "",
             isAvailable: "nonworkingHours"
         };
-    } else if (checkSunday(date)) {
+    }
+    if (checkSunday(date)) {
         return {
             className: "nonworking-hours",
             availabilityDescription: "",
@@ -95,7 +95,8 @@ export function checkAvailability(date: string, time: any): IAvailability {
             availabilityDescription: "",
             isAvailable: "nonworkingHours"
         };
-    } else if (checkBreak(time)) {
+    }
+    if (checkBreak(time)) {
         return {
             className: "break",
             availabilityDescription: "BREAK",
@@ -134,9 +135,8 @@ function checkWorkingHoursForDay(date: string, time: any): boolean {
     let _date = new Date(date);
     if (!(_date.getDate() % 2 === 0 && time.id > lastIdMorning)) {
         return !(_date.getDate() % 2 === 0) && time.id < firstIdAfternoon;
-    } else {
-        return true;
     }
+    return true;
 }
 
 function checkBreak(time: any): boolean {

@@ -20,13 +20,13 @@ export function handleChangeWeek(dataSymbol:string, weekStartWith:Date, weekID:n
         let mondayFromToday = getMonday(today);
         if (mondayFromToday.getTime() > newStartDate.getTime()) {
             return {beforeToday: true, afterTwoMonths:false, newStartDate:newStartDate, weekID: weekID};
-            // alert("You cannot go in week before that we are today!")
         } else {
             weekID = weekID - 1;
             return {beforeToday: false, afterTwoMonths:false, newStartDate:newStartDate, weekID: weekID}
         }
 
-    } else if (dataSymbol === "plus") {
+    }
+    if (dataSymbol === "plus") {
         let newDay = todayDay + 7;
         let newStartDate = new Date(todayYear, todayMonth, newDay);
 

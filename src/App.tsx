@@ -3,9 +3,9 @@ import './App.scss';
 import {Calendar} from "./components/Calendar/calendar";
 
 function App() {
-  return (
-    <Calendar/>
-  );
+    return (
+        <Calendar/>
+    );
 }
 
 export default App;

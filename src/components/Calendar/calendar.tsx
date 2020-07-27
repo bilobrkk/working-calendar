@@ -44,36 +44,34 @@ export class Calendar extends Component<any, any> {
         let response = handleChangeWeek(dataSymbol, weekStartWith, weekID);
 
         if (response.beforeToday) {
-            return (
-                alert("You cannot go in week before that we are today!")
-            )
-        } else if (response.afterTwoMonths) {
-            return (
-                alert("You cannot go more than two months from today!")
-            )
-        } else {
-            this.setState(() => {
-                return {
-                    weekStartWith: response.newStartDate,
-                    weekID: response.weekID
-                }
-            });
+            return alert("You cannot go in week before that we are today!");
         }
+        if (response.afterTwoMonths) {
+            return alert("You cannot go more than two months from today!");
+        }
+
+        this.setState(() => {
+            return {
+                weekStartWith: response.newStartDate,
+                weekID: response.weekID
+            }
+        });
+
     };
 
-    handleAppointments(evenet: any) {
+    handleAppointments(event: any) {
         if (this.state.userID == 0) {
             alert("YOU CANNOT CREATE APPOINTMENT FOR THIS USER!");
             return;
         }
-        this.selectedTimeID = evenet.target.getAttribute("data-time-row");
-        this.selectedDate = evenet.target.getAttribute("data-date-cell");
+        this.selectedTimeID = event.target.getAttribute("data-time-row");
+        this.selectedDate = event.target.getAttribute("data-date-cell");
         this.selectedTime = getChosenTimeByID(this.selectedTimeID);
         this.togglePopup();
     };
 
-    selectChange(evenet: any) {
-        let userID = evenet.target.value;
+    selectChange(event: any) {
+        let userID = event.target.value;
         this.setState((state: any) => {
             return {userID: userID}
         });
@@ -154,12 +152,13 @@ export class Calendar extends Component<any, any> {
 export function makePointer(availability: boolean | "break" | "nonworkingHours" | "reserved") {
     if (availability === true) {
         return {cursor: "pointer"};
-    } else if (availability === "reserved") {
-        return {cursor: "no-drop"};
-    } else if (availability === "break") {
-        return {cursor: "no-drop"};
-    } else {
-        return {cursor: "default"};
     }
+    if (availability === "reserved") {
+        return {cursor: "no-drop"};
+    }
+    if (availability === "break") {
+        return {cursor: "no-drop"};
+    }
+    return {cursor: "default"};
 }
 
